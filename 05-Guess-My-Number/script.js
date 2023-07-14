@@ -3,6 +3,7 @@
 //************** VARIABLES **************/
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highscore = 0;
 
 //************** CHECK EVENT LISTENERS **************/
 document.querySelector('.check').addEventListener('click', function () {
@@ -19,6 +20,11 @@ document.querySelector('.check').addEventListener('click', function () {
 
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
     // ? When guess is too high
   } else if (guess > secretNumber) {
